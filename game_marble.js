@@ -13,7 +13,7 @@ const gameMusic = document.getElementById("game-music");
 // home page
 function homePage() 
 {
-    window.location.href = "gameSelectTheme.html";
+    window.location.href = "index.html";
 }
 
 document.getElementById("home-btn").addEventListener("click", homePage);
@@ -305,5 +305,6 @@ function switchMusic()
             muteBtn.textContent = "Mute Music";
         }
 }
+
 
 muteBtn.addEventListener("click", switchMusic);
