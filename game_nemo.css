@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('bg_nemo.jpg');
+    background-size: cover;
+    background-position: center;
+    height: auto; 
+    width: auto; 
+    font-family: Apple Chancery, cursive;
+}
+
+.content-wrapper {
+    width: 95%; 
+    margin: auto;
+    height: auto;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 10px;
+    width: 100%;
+}
+
+/* Header divs */
+.leftstyle-div {
+    margin-left: auto;
+}
+
+/* Title Styling */
+h1 {
+    color: #830c49;
+    font-size: 35px;
+    text-decoration: underline;
+    text-align: center;
+}
+
+/* Button Styling */
+.common-style {
+    padding: 5px 10px;
+    background-color: #a04574;
+    color: whitesmoke;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.common-style:hover {
+    background-color: #504faa;
+}
+
+/* Main Game Container */
+.game-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    height: 100%;
+}
+
+/* User Input Container */
+.input-container {
+    margin-top: 60px;
+    width: auto;
+    height: 40%;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Message Styling */
+.container-mgs, .indicator-mgs {
+    text-align: center;
+    color: whitesmoke;
+}
+
+/* Board(table) Container */
+.board-container {
+    margin-top: auto;
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.board 
+{
+    border-collapse: collapse;
+}
+
+.board td 
+{
+    width: 60px;
+    height: 60px;
+    border: 3px solid #eb800e;
+    background-color: #67666b;
+    background-size: cover;
+    background-position: center;
+}

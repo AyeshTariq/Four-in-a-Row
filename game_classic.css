@@ -1,0 +1,125 @@
+body 
+{
+    margin: 0; /*if m,p is not used then the text and button are not tight bound*/
+    padding: 0;
+    background-image: url('bg_classic.png');
+    background-size: cover;
+    background-position: center;
+    height: auto; 
+    width: auto; 
+    font-family: 'French Script MS';
+}
+
+.content-wrapper /*First div of the page for heading and button*/
+{
+    width: 95%; 
+    margin: auto;
+    height: auto; 
+}
+
+header 
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 10px;
+    width: 100%; 
+}
+
+.leftstyling-div 
+{
+    margin-left: auto;
+}
+
+h1
+{
+    color: black;
+    font-size: 35px;
+    text-decoration: underline;
+}
+
+
+.head-btn
+{
+    padding: 5px 10px; /*height, width padding*/
+    background-color: #a04574; /*pink background for the button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+
+.head-btn:hover 
+{
+    background-color: #504faa; /*purple on hover*/
+}
+
+.game-container /*This is the main div, dividing in further two divs*/
+{ 
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    height: 100%;
+}
+
+.input-container /*User input div*/
+{  
+    margin-top: 60px;
+    width: auto;
+    height: 40%;
+    padding: 10px;
+    border: 5px solid  #a04574;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+
+}
+
+h2 /*Select heading*/
+{
+    text-align: center;
+    color: black; /*Black color for the heading*/
+}
+
+.container-btn
+{
+    padding: 5px 10px; /*height, width padding*/
+    background-color: #719583; /*green background for the button*/
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.container-btn:hover 
+{
+    background-color: #504faa; /*purple on hover*/
+}
+
+
+.mgs-indicator /*player switching mgs*/
+{
+    text-align: center;
+}
+
+
+.board-container /*gameboard div*/
+{
+    margin-top: auto;
+    width: 60%;
+    height: 100%;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center; /*for diplaying the table in the center of assigned h,w*/
+    align-items: center; /*for displaying created table content (circles) in the center*/
+}
+
+.board td {
+    width: 60px;
+    height: 60px;
+    background-color: #a06307;
+    border-radius: 30%;
+    background-size: cover;
+    background-position: center;
+
+}

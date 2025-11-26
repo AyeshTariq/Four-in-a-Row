@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Connect Four Game</title>
+</head>
+<body>
+
+    <script>
+        // PASTE ALL YOUR JAVASCRIPT CODE HERE
+        const gameArr = 
+        [
+            ["", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", ""],
+            ["", "", "", "", "", "", ""]
+        ];
+           let playerTurn = 1; // 1 for player 1, 2 for player 2
+           let gameOver = false;
+           let winner = 0; // 0 for no winner
+           
+           function userInput() //Checking if the value is in the boundary, column avalibility and placing the value that column
+           {
+           const col = parseInt(prompt("Player " + playerTurn + ", enter the column number (0-6):"));
+            if (col >= 0 && col < gameArr[0].length)
+                 {
+                   let row = gameArr.length - 1; // Find the lowest row of the column
+                   while (row >= 0 && gameArr[row][col] !== "")
+                        {
+                        row--;
+                        }
+                    
+                        if (row === -1) //-1 means the column is full
+                            {
+                            alert("Column is full!!! \nPlease try a another column.");
+                            return;
+                            }
+                            
+                   let playerSymbol = 'Y'; //Users value i.e Y and B
+                   
+                   if (playerTurn === 2)
+                        {
+                        playerSymbol = 'B';
+                        }
+                   
+                        gameArr[row][col] = playerSymbol;
+                   
+                        if (winConditions()) //Check for win condition after the turn
+                        {
+                        gameOver = true;
+                        winner = playerTurn; //Tells which player has won the game
+                        return;
+                        }
+                   
+                        else
+                        {
+                        if (playerTurn === 1) //Switch the player turn
+                        {
+                        playerTurn = 2;
+                        }
+                        else
+                        {
+                        playerTurn = 1;
+                        }
+                        }
+                 }
+           
+                 else
+                        {
+                        alert("Invalid column. \nPlease enter a value between 0 and 6.");
+                        }
+           }
+            
+           function winConditions()
+           {
+           const rows = gameArr.length;
+           const cols = gameArr[0].length;
+           
+           for (let i = 0; i < rows; i++) //Check rows
+            {
+            for (let j = 0; j < cols - 3; j++)
+            
+            {
+            if (
+                  gameArr[i][j] !== "" && 
+                  gameArr[i][j] === gameArr[i][j + 1] &&
+                  gameArr[i][j + 1] === gameArr[i][j + 2] && 
+                  gameArr[i][j + 2] === gameArr[i][j + 3]
+            )
+            
+                   {
+                       return true;
+                   }
+           }
+           }
+           
+           for (let j = 0; j < cols; j++) //Check columns
+           
+           {
+           for (let i = 0; i < rows - 3; i++)
+           {
+           if (
+            gameArr[i][j] !== "" && 
+            gameArr[i][j] === gameArr[i + 1][j] && 
+            gameArr[i + 1][j] === gameArr[i + 2][j] && 
+            gameArr[i + 2][j] === gameArr[i + 3][j]
+            )
+
+                 {
+                 return true;
+                 }
+           }
+           }
+           
+           for (let i = 0; i < rows - 3; i++) //Check left diagonal
+            {
+            for (let j = 0; j < cols - 3; j++)
+           {
+           if (
+            gameArr[i][j] !== "" && 
+            gameArr[i][j] === gameArr[i + 1][j + 1] && 
+            gameArr[i + 1][j + 1] === gameArr[i + 2][j + 2] && 
+            gameArr[i + 2][j + 2] === gameArr[i + 3][j + 3]
+            )
+                 {
+                 return true;
+                 }
+           }
+           }
+           
+           
+           for (let i = 0; i < rows - 3; i++) //Check right diagonal
+           {
+           for (let j = 3; j < cols; j++)
+           {
+           if (
+            gameArr[i][j] !== "" && 
+            gameArr[i][j] === gameArr[i + 1][j - 1] && 
+            gameArr[i + 1][j - 1] === gameArr[i + 2][j - 2] && 
+            gameArr[i + 2][j - 2] === gameArr[i + 3][j - 3]
+            )
+                 {
+                 return true;
+                 }
+           }
+           }
+            
+           return false;
+           }
+            
+            
+           function displayBoard() //Display the board and formatting
+           {
+           let boardString = "Four in a Row\n"; //Heading
+           boardString += "--------------\n"; // Underline the heading
+           for (let i = 0; i < gameArr.length; i++) //Displaying the board-rows
+           {
+           for (let j = 0; j < gameArr[i].length; j++) //Displaying the board-columns
+           {
+           boardString += gameArr[i][j] + " ";
+           }
+           boardString += "\n";
+           }
+           boardString += "0 1 2 3 4 5 6\n"; //Column numbers at the bottom
+           alert(boardString);
+           }
+           while (!gameOver) //If the game is not over it will update the matrix and diplay it to the user
+           {
+           userInput();
+           displayBoard();
+           if (gameOver) //when game ends it will break the loop
+           {
+           break;
+           }
+           }
+           if (winner === 0) //Game draw
+           {
+           alert("It's a draw!");
+           }
+           else
+           {
+           alert("Congratulations Player " + winner + "!!! You won the Game :)");
+           }
+    </script>
+
+</body>
+</html>
